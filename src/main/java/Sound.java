@@ -15,8 +15,17 @@ public class Sound
    */
   public int limitAmplitude(int limit)
   {  
-    /* to be implemented in part (a) */
-    return 0;
+    int changes = 0;
+    for(int i = 0; i < samples.length; i++){
+      if(samples[i]>limit){
+        samples[i] = limit;
+        changes++;
+      }
+      if(samples[i]<-limit){
+        samples[i] = -limit;
+        changes++;
+      }
+    return changes;
   }
 
 
@@ -28,6 +37,15 @@ public class Sound
    */
   public void trimSilenceFromBeginning()
   {
-    /* to be implemented in part (b) */
+    int start = 0;
+    while(samples[i]==0){
+      start++;
+      i++;
   }
+    int[]array = new int [samples.length - start];
+    for(int i = 0; i < array.length; i++){
+      array[i] = samples[i+start];
+      i++;
+    }
+    samples = array;
 }
