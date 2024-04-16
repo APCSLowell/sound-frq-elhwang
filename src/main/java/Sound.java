@@ -21,7 +21,7 @@ public class Sound
         samples[i] = limit;
         changes++;
       }
-      if(samples[i]<-limit){
+      else if(samples[i]<-limit){
         samples[i] = -limit;
         changes++;
       }
@@ -39,14 +39,11 @@ public class Sound
   public void trimSilenceFromBeginning()
   {
     int start = 0;
-    while(samples[i]==0){
+    while(samples[start]==0)
       start++;
-      i++;
-  }
-    int[]array = new int [samples.length - start];
-    for(int i = 0; i < array.length; i++){
-      array[i] = samples[i+start];
-      i++;
+    int[]samplestwo = new int [samples.length - start];
+    for(int i = 0; i < sammplestwo.length; i++){
+      samplestwo[i] = samples[i+start];
     }
-    samples = array;
+    samples = samplestwo;
 }
